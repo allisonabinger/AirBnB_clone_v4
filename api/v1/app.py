@@ -19,10 +19,6 @@ def close_db(error):
     """ Close Storage """
     storage.close()
 
-@app.route('/api/v1/status', methods=['GET'], strict_slashes=False)
-def api_status():
-    """ Check the status of the API """
-    return jsonify(status="OK")
 
 @app.errorhandler(404)
 def not_found(error):
@@ -34,12 +30,15 @@ def not_found(error):
     """
     return make_response(jsonify({'error': "Not found"}), 404)
 
+
 app.config['SWAGGER'] = {
     'title': 'AirBnB clone Restful API',
     'uiversion': 3
 }
 
+
 Swagger(app)
+
 
 if __name__ == "__main__":
     """ Main Function """
