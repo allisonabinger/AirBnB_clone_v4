@@ -8,6 +8,7 @@ $(document).ready(function () {
     } else {
       delete amenities[$(this).data('id')];
     }
+    console.log('Amenities', amenities)
     updateAmenities();
   });
 
@@ -48,9 +49,8 @@ $(document).ready(function () {
     data.forEach(place => {
         const article = document.createElement('article');
         article.innerHTML = `
-            <!-- Your place details here -->
             <h2>${place.name}</h2>
-            <!-- Add other details you want to display -->
+            <p>${place.description}</p>
         `;
         placesSection.appendChild(article);
     });

@@ -12,6 +12,28 @@ $(document).ready(function () {
   });
 
   $('button').on('click', function() {
+    const data = {
+      amenities: Object.keys(amenities)
+    };
+    $.ajax({
+      url: 'http://0.0.0.0:5001/api/v1/places_search/',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ amenities: Object.keys(amenities) }),
+      success: function (data) {
+        const placesSection = $('.places');
+        placesSection.empty(); // Clear the places section
+        data.forEach(place => {
+          const article = document.createElement('article');
+          article.innerHTML = `
+              <!-- Your place details here -->
+              <h2>${place.name}</h2>
+              <p>${place.description}</p>
+          `;
+          placesSection.append(article);
+        });
+      }
+    })
     console.log('Button clicked!');
     // Add your code here
 });
@@ -55,7 +77,7 @@ $(document).ready(function () {
         article.innerHTML = `
             <!-- Your place details here -->
             <h2>${place.name}</h2>
-            <!-- Add other details you want to display -->
+            <p>${place.description}</p>
         `;
         placesSection.appendChild(article);
     });
