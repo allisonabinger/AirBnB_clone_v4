@@ -39,7 +39,7 @@ button:hover {
     margin-left: 15%;
     margin-top: 0;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 10px;
 }
 .locations {
     height: 100%;
@@ -50,7 +50,6 @@ button:hover {
     height: 100%;
     width: 25%;
 }
-
 .popover {
     visibility: hidden;
     width: 100%;
@@ -62,6 +61,9 @@ button:hover {
     overflow-y: scroll;
     scrollbar-width: none;
     max-height: 300px;
+    transition: visibility 0s linear 0.3s, opacity 0.3s linear;
+    /*the transition delay above allows for a delay when the user hovers away, which
+    fixes the issue of not being able to use checkbox after some are selected.*/
 }
 
 .popover::-webkit-scrollbar{
@@ -100,4 +102,5 @@ button:hover {
 .amenities:hover .popover,
 .locations:hover .popover {
     visibility: visible;
+    transition-delay: 0s; /* immediate visibility upon user hovering*/
 }
