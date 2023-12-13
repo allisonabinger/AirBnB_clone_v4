@@ -8,7 +8,6 @@ $(document).ready(function () {
     } else {
       delete amenities[$(this).data('id')];
     }
-    console.log('Amenities', amenities)
     updateAmenities();
   });
 

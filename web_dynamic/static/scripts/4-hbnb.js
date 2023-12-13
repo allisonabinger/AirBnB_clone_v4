@@ -34,8 +34,6 @@ $(document).ready(function () {
         });
       }
     })
-    console.log('Button clicked!');
-    // Add your code here
 });
 
   // Request API status
@@ -75,7 +73,6 @@ $(document).ready(function () {
     data.forEach(place => {
         const article = document.createElement('article');
         article.innerHTML = `
-            <!-- Your place details here -->
             <h2>${place.name}</h2>
             <p>${place.description}</p>
         `;
